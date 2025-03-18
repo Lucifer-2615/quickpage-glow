@@ -1,8 +1,10 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import Logo from '@/components/Logo';
 import ProductEditor from '@/components/ProductEditor';
 import Preview from '@/components/Preview';
 import PreviewControls from '@/components/PreviewControls';
+import ImageSlider from '@/components/ImageSlider';
 import { ProductData, ExportFormat } from '@/types/product';
 import { generateHTML, generateReactCode, downloadCode } from '@/utils/generator';
 import { toast } from 'sonner';
@@ -90,16 +92,12 @@ const Index = () => {
       
       <main className="container py-6">
         <div className="flex flex-col gap-8 md:gap-12">
-          <div className="space-y-4 text-center max-w-3xl mx-auto animate-fade-in">
-            <div className="inline-flex px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-              AI-Powered E-commerce Landing Page Generator
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Create stunning landing pages for your products
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Enter your product details and watch as AI instantly generates a beautiful, conversion-focused landing page that's ready to publish.
-            </p>
+          {/* Replace text intro with image slider */}
+          <div className="animate-fade-in">
+            <ImageSlider 
+              images={product.images.length > 0 ? product.images : []} 
+              title="Product Landing Page Generator" 
+            />
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 pb-16">

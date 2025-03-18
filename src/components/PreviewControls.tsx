@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Desktop, Tablet, Smartphone, RefreshCw, Download } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, RefreshCw, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
@@ -26,7 +26,7 @@ const PreviewControls: React.FC<PreviewControlsProps> = ({ onRefresh, onExport }
           onClick={() => handleViewportChange('desktop')}
           className="h-8 w-8"
         >
-          <Desktop size={16} />
+          <ArrowUp size={16} />
         </Button>
         <Button
           variant={viewportSize === 'tablet' ? 'secondary' : 'ghost'}
@@ -34,7 +34,7 @@ const PreviewControls: React.FC<PreviewControlsProps> = ({ onRefresh, onExport }
           onClick={() => handleViewportChange('tablet')}
           className="h-8 w-8"
         >
-          <Tablet size={16} />
+          <ArrowRight size={16} />
         </Button>
         <Button
           variant={viewportSize === 'mobile' ? 'secondary' : 'ghost'} 
@@ -42,7 +42,7 @@ const PreviewControls: React.FC<PreviewControlsProps> = ({ onRefresh, onExport }
           onClick={() => handleViewportChange('mobile')}
           className="h-8 w-8"
         >
-          <Smartphone size={16} />
+          <ArrowDown size={16} />
         </Button>
       </div>
       

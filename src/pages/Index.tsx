@@ -29,6 +29,7 @@ const Index = () => {
 
   const handlePreview = (updatedProduct: ProductData) => {
     setProduct(updatedProduct);
+    toast.success("Preview updated!");
   };
 
   const handleExport = (data: ProductData, format: ExportFormat) => {
@@ -42,6 +43,17 @@ const Index = () => {
   };
 
   const handleRefresh = () => {
+    // This forces the preview to update by triggering the useEffect in Preview component
+    const previewComponent = previewRef.current?.querySelector('iframe');
+    if (previewComponent) {
+      const iframeDoc = previewComponent.contentDocument || previewComponent.contentWindow?.document;
+      if (iframeDoc) {
+        const html = generateHTML(product);
+        iframeDoc.open();
+        iframeDoc.write(html);
+        iframeDoc.close();
+      }
+    }
     toast.info("Preview refreshed");
   };
 

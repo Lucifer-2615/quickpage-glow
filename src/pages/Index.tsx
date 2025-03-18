@@ -1,5 +1,4 @@
-
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Logo from '@/components/Logo';
 import ProductEditor from '@/components/ProductEditor';
 import Preview from '@/components/Preview';
@@ -29,6 +28,12 @@ const Index = () => {
 
   const handlePreview = (updatedProduct: ProductData) => {
     setProduct(updatedProduct);
+    
+    // Force immediate preview update
+    setTimeout(() => {
+      handleRefresh();
+    }, 100);
+    
     toast.success("Preview updated!");
   };
 

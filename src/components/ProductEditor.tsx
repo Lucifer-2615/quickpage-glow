@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Upload, Check, X, Image as ImageIcon, SlidersHorizontal, Eye, Code, Save } from 'lucide-react';
 import { toast } from 'sonner';
@@ -136,7 +135,6 @@ const ProductEditor: React.FC<{
 
   const handlePreview = () => {
     onPreview(product);
-    toast.success("Preview updated!");
   };
 
   const handleExport = (format: ExportFormat) => {
